@@ -40,7 +40,9 @@ Nessa primeira versão existe apenas conferencia de jogo da lotofácil.
 
 - Cadastrar novas apostas 
 
-```python betcheck.py adicionar```
+```
+python betcheck.py adicionar
+```
 
 - Listar as apostas Cadastradas
 
