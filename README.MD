@@ -4,7 +4,7 @@
 
 Essa aplicação foi criada com objetivo de aprendizado do básico da linguagem python, com automatização de tarefas repetitivas, lançando mão de bibliotecas como selenium para realizar as capturas nos sites de resultados de loterias caixa e automatizar o processo de conferência dos número apostados.
 
-A principio foi construído uma aplicação console para ao invocar as linhas de comando, conforme as instruções abaixo, possa cadastrar, apostas e realizar a conferencia dos resultados buscados de forma online dos sites oficiais.
+A principio foi construído uma aplicação console para ao invocar as linhas de comando, conforme as instruções nos tópicos mais abaixo. Ela permite cadastrar apostas e realizar a conferencia dos resultados buscados de forma online nos sites oficiais.
 
 É uma aplicação na qual tento explorar alguns conceitos de orientação a objeto, alguns patterns do DDD como por exemplo o pattern Repository utilizando um banco em arquivo binário com a biblioteca Shelve.
 
@@ -34,4 +34,26 @@ Referência que foi importante para essa configuração:
 https://link.medium.com/xqoeRlDHQ7 
 
 
+## Instruções
 
+Nessa primeira versão existe apenas conferencia de jogo da lotofácil.
+
+- Cadastrar novas apostas 
+
+```python betcheck.py adicionar```
+
+- Listar as apostas Cadastradas
+
+```
+python betcheck.py listar
+```
+
+- Listar os concursos
+
+python betcheck.py listar-concurso
+
+- Conferir resultados 
+
+``` 
+python betcheck.py conferir
+```
