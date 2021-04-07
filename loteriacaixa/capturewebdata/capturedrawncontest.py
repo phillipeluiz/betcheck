@@ -16,11 +16,11 @@ def get_last_draw_contest(modality,nrocontest=""):
 
         if (browser.current_url != 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/'+ modality + '/'):
             browser.get('http://loterias.caixa.gov.br/wps/portal/loterias/landing/' + modality + '/')
-            waitvalidpageshow(browser, 'resultado-lotofacil', 1)
+            waitvalidpageshow(browser, 'resultado-lotofacil', 2)
 
             #Se houver um concurso informado realiza a busca no site
             if (get_custom_draw_contest(browser, nrocontest) == True):
-                waitvalidpageshow(browser, 'resultado-lotofacil', 1)
+                waitvalidpageshow(browser, 'resultado-lotofacil', 2)
             
 
             __elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/*')

@@ -13,7 +13,7 @@ def waitvalidpageshow(browser, reportId, popUpDelay):
         elemPopUp = ''
 
         if (reportId=='resultado-lotofacil'):
-            elemValid = waitElementByFilterType(browser, 'link_text','Resultado',popUpDelay)
+            elemValid = waitElementByFilterType(browser, 'x_path','/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div/div[1]/div/h2',popUpDelay)
             #elif (reportId=='resultado-'):
             #    elemValid = waitElementByFilterType(browser, 'class_name','report__logo', popUpDelay)
             #elif (reportId='empiricus-melhores'):
@@ -41,8 +41,8 @@ def waitvalidpageshow(browser, reportId, popUpDelay):
     except TimeoutError as ErrTimeOut:
         print('elemento não encontrado /n', str(ErrTimeOut))
         return False
-    except Exception:
-        #print(Err.__traceback__ , '/n' , Err)
+    except Exception as Err:
+        print(Err.__traceback__ , '/n' , Err)
         return False
     
 
@@ -76,5 +76,9 @@ def waitElementByFilterType(browser, filterType,filterValue,secondDelay):
     elif (filterType=='link_text'):
         return WebDriverWait(browser,secondDelay).until(
             EC.presence_of_element_located((By.LINK_TEXT,filterValue))
+        )
+    elif (filterType=='x_path'):
+        return WebDriverWait(browser,secondDelay).until(
+            EC.presence_of_element_located((By.XPATH,filterValue))
         )
     
