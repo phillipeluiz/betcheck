@@ -14,7 +14,7 @@
             "request": "launch",
             "program": "${workspaceFolder}\\loteriacaixa\\betcheck.py",
             "console": "integratedTerminal",
-            "args":["conferir", "1985"]
+            "args":["remover-aposta","3"]
         }
     ]
 }

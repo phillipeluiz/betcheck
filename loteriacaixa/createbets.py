@@ -66,7 +66,7 @@ def get_bet_numbers(betid):
 
 def iter_create_bet():
     numbers = []
-    for i in range(1,16):
+    for i in range(1,18):
         print('(',str(i),') Entre com um número da aposta ou X para sair')
         item_number = input()
         if (item_number != 'X'):

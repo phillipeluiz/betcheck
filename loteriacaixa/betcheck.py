@@ -30,7 +30,7 @@ if (len(sys.argv)>1):
 if (len(sys.argv)>1):
     if((sys.argv[1]).upper()=='ADICIONAR'):
         print('LOTOFÁCIL - 15 Números')
-        print('Entre com os números conforme será solicidade.')
+        print('Entre com os números conforme será solicitado (até o máximo de 17).')
         betid = iter_create_bet()
         listaAposta = get_bet_numbers(betid)
         print('Id ({:03}) Números apostados {}'.format(listaAposta['id'], listaAposta['numbers']))

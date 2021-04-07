@@ -23,12 +23,13 @@ def get_last_draw_contest(modality,nrocontest=""):
                 waitvalidpageshow(browser, 'resultado-lotofacil', 2)
             
 
-            __elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/*')
+            #__elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/*')
+            __elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div/div[2]/div/div/div[1]/ul')[0].text.split()
             __elem_contest =  browser.find_element_by_css_selector('.title-bar > h2:nth-child(2) > span:nth-child(1)')
             __drawns_list = []
 
             for __drawn in __elem_drawn_number_list:
-                __drawns_list.append(str(int(__drawn.text)))
+                __drawns_list.append(str(int(__drawn)))
 
             __regex_contest = re.compile(' (D)*[0-9][0-9][0-9][0-9]')
             __regex_date_contest = re.compile('[0-9][0-9]\/[0-9][0-9]\/[0-9][0-9][0-9][0-9]')
@@ -42,9 +43,10 @@ def get_last_draw_contest(modality,nrocontest=""):
         
         return mycontest
         
-    except Exception:
+    except Exception as Err:
+        print(str(Err.__traceback__) + '\n' + str(Err))
         return False
-        #print(str(Err.__traceback__) + '\n' + str(Err))
+        
     finally:
         browser.quit()
 
