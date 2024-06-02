@@ -33,7 +33,7 @@ def checkdrawn(modality,contest_number):
         else:
             mycontestdrawn = get_last_draw_contest(modality)
 
-        if mycontestdrawn!=None:
+        if mycontestdrawn is not None:
             numbercontest = mycontestdrawn.get_contest_number()
             if numbercontest.isdigit():
                 mycurrentcontest = get_contest_by_number(numbercontest,modality)

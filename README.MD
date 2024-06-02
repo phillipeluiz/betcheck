@@ -12,7 +12,7 @@ A ferramenta como aprendizado foi muito importante, mas apenas um passo inicial,
 
 O código está disponível para aprendizado, colaborações e como parte de um começo na construção de portifólio.
 
-Há enumeros problemas também e simplificações, mas como ponta pé inicial fico satisfeito na publicação e compartilhamento.
+Há inúmeros problemas também e simplificações, mas como ponta pé inicial fico satisfeito na publicação e compartilhamento.
 
 ## Tecnologias:
 

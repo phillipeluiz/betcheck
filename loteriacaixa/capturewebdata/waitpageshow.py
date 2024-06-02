@@ -13,7 +13,9 @@ def waitvalidpageshow(browser, reportId, popUpDelay):
         elemPopUp = ''
 
         if (reportId=='resultado-lotofacil'):
-            elemValid = waitElementByFilterType(browser, 'x_path','/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div/div[1]/div/h2',popUpDelay)
+            #elemValid = waitElementByFilterType(browser, 'x_path','/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div/div[1]/div/h2',popUpDelay)
+            elemValid = waitElementByFilterType(browser, 'x_path', '/html/body/div[2]/header/div[4]/div[1]/div/h1',popUpDelay)
+
             #elif (reportId=='resultado-'):
             #    elemValid = waitElementByFilterType(browser, 'class_name','report__logo', popUpDelay)
             #elif (reportId='empiricus-melhores'):

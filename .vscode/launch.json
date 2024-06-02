@@ -12,9 +12,9 @@
             "name": "Python: Bet Check Option",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\loteriacaixa\\betcheck.py",
+            "program": "${workspaceFolder}\\loteriacaixa\\betcheckoption.py",
             "console": "integratedTerminal",
-            "args":["remover-aposta","3"]
+            "args":[]
         }
     ]
 }

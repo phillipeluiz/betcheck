@@ -2,17 +2,22 @@
 # Captura numeros sorteados em um concurso do site da Caixa
 import re
 from domain.entity import contest
-from capturewebdata.connectbrowser import connectfirefox
+#from capturewebdata.connectbrowser import connectfirefox
+from capturewebdata.connectbrowser import connectEdge
 from capturewebdata.waitpageshow import waitvalidpageshow
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 """
 Retorna os dados do concurso sorteado atual
 """
 def get_last_draw_contest(modality,nrocontest=""):
+    browser = None
     try:
 
-        browser = connectfirefox()
+        browser = connectEdge()
+        if not browser:
+            raise Exception('Failed to connect to Edge')
 
         if (browser.current_url != 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/'+ modality + '/'):
             browser.get('http://loterias.caixa.gov.br/wps/portal/loterias/landing/' + modality + '/')
@@ -24,8 +29,10 @@ def get_last_draw_contest(modality,nrocontest=""):
             
 
             #__elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/*')
-            __elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div/div[2]/div/div/div[1]/ul')[0].text.split()
-            __elem_contest =  browser.find_element_by_css_selector('.title-bar > h2:nth-child(2) > span:nth-child(1)')
+            __elem_drawn_number_list = browser.find_element(By.XPATH,  '/html/body/form/div[2]/div/div[1]/span/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div[2]/div/div/div[1]')[0].text.split()
+            #__elem_drawn_number_list = browser.find_elements_by_xpath('/html/body/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/section/div[2]/div[2]/div/div/div[2]/div/div/div[1]/ul')[0].text.split()
+            #__elem_contest =  browser.find_element_by_css_selector('.title-bar > h2:nth-child(2) > span:nth-child(1)')
+            __elem_contest =  browser.find_element(By.CSS_SELECTOR,  '.title-bar > h2:nth-child(2) > span:nth-child(1)')
             __drawns_list = []
 
             for __drawn in __elem_drawn_number_list:
@@ -45,10 +52,11 @@ def get_last_draw_contest(modality,nrocontest=""):
         
     except Exception as Err:
         print(str(Err.__traceback__) + '\n' + str(Err))
-        return False
+        return None
         
     finally:
-        browser.quit()
+        if browser is not None and not isinstance(browser, bool):
+            browser.quit()
 
 
 # Se for diferente de vazio, preencher com o numero do sorteio o campo com id = buscaConcurso
